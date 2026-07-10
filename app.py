@@ -21,16 +21,12 @@ st.set_page_config(
     page_icon="🎥",
     layout="wide"
 )
-def get_base64(file):
-    with open(file, "rb") as f:
-        return base64.b64encode(f.read()).decode()
-img = get_base64("background.jpg")
 
-st.markdown(f"""
+st.markdown("""
 <style>
 
 .stApp {{
-    background-image: url("C:\Users\kolek\nlp\01_Project\background.img.jpg,{img}");
+    background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1920&q=80");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -51,8 +47,7 @@ h1,h2,h3,h4,h5,h6,p,label,span{{
 }}
 
 </style>
-""", unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
 df = pd.read_csv('cleaned_data.csv')
 similarities = joblib.load(open("similarity.joblib",'rb'))
