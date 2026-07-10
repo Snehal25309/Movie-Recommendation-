@@ -31,21 +31,6 @@ st.markdown("""
     background-position: center;
     background-attachment: fixed;
 }}
-
-[data-testid="stHeader"]{{
-    background: rgba(0,0,0,0);
-}}
-
-.main > div {{
-    background: rgba(0,0,0,0.65);
-    padding:20px;
-    border-radius:15px;
-}}
-
-h1,h2,h3,h4,h5,h6,p,label,span{{
-    color:white !important;
-}}
-
 </style>
 """, unsafe_allow_html=True)
 
