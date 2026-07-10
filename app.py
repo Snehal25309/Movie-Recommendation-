@@ -55,6 +55,50 @@ h1,h2,h3,p,label,span {{
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+
+/* Metric Card */
+[data-testid="metric-container"]{
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius:18px;
+    padding:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+}
+
+/* Recommendation Card */
+.recommend-card{
+    background: rgba(0,0,0,0.55);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:20px;
+    text-align:center;
+    box-shadow:0px 8px 20px rgba(0,0,0,0.5);
+    transition:0.3s;
+}
+
+.recommend-card:hover{
+    transform:scale(1.03);
+    border:1px solid #FFD700;
+}
+
+.recommend-title{
+    font-size:28px;
+    font-weight:bold;
+    color:white;
+}
+
+.recommend-number{
+    color:#FFD700;
+    font-size:18px;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 df = pd.read_csv('cleaned_data.csv')
 similarities = joblib.load(open("similarity.joblib",'rb'))
 
