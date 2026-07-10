@@ -1,3 +1,16 @@
+import os
+import gdown
+import joblib
+
+FILE_ID = "1G1N7k2U9wS9DnVlA-krJw2zVRhZl4tFi"
+OUTPUT = "similarity.joblib"
+
+if not os.path.exists(OUTPUT):
+    url = f"https://drive.google.com/uc?id={FILE_ID}"
+    gdown.download(url, OUTPUT, quiet=False)
+
+similarity = joblib.load(OUTPUT)
+
 import pandas as pd
 import streamlit as st
 import pickle
@@ -10,7 +23,7 @@ st.set_page_config(
 
 
 df = pd.read_csv('cleaned_data.csv')
-similarities = pickle.load(open("similarity.pkl",'rb'))
+# similarities = joblib.load(open("similarity.joblib",'rb'))
 
 movies = df['title'].tolist()
 
