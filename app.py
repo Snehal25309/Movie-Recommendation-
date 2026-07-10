@@ -133,7 +133,7 @@ left, right = st.columns([2, 1])
 
 with left:
     name = st.selectbox(
-        "🎥 Select a Movie",
+        "🎥 SELECT A MOVIE",
         movies,
         index=None,
         placeholder="Choose a movie..."
