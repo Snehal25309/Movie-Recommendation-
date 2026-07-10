@@ -21,7 +21,9 @@ st.set_page_config(
     page_icon="🎥",
     layout="wide"
 )
-
+def get_base64(file):
+    with open(file, "rb") as f:
+        return base64.b64encode(f.read()).decode()
 img = get_base64("background.jpg")
 st.markdown(f"""
 <style>
@@ -124,10 +126,5 @@ if st.button("Recommend"):
             st.balloons()
 st.divider()
 
-
-
-def get_base64(file):
-    with open(file, "rb") as f:
-        return base64.b64encode(f.read()).decode()
 
 st.caption("Made by Snehal Kolekar with ❤️ using Python, Pandas, Pickle & Streamlit")
