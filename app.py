@@ -30,7 +30,7 @@ st.markdown("""
 <style>
 
 .stApp {{
-    background-image: url("""C:\Users\kolek\nlp\01_Project\background.img.jpg"",{img}");
+    background-image: url(""C:\Users\kolek\nlp\01_Project\background.img.jpg,{img}");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
