@@ -1,6 +1,7 @@
 import os
 import gdown
 import joblib
+import base64
 
 FILE_ID = "1G1N7k2U9wS9DnVlA-krJw2zVRhZl4tFi"
 OUTPUT = "similarity.joblib"
@@ -21,6 +22,33 @@ st.set_page_config(
     layout="wide"
 )
 
+img = get_base64("background.jpg")
+st.markdown(f"""
+<style>
+
+.stApp {{
+    background-image: url("data:image/jpg;base64,{img}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}}
+
+[data-testid="stHeader"]{{
+    background: rgba(0,0,0,0);
+}}
+
+.main > div {{
+    background: rgba(0,0,0,0.65);
+    padding:20px;
+    border-radius:15px;
+}}
+
+h1,h2,h3,h4,h5,h6,p,label,span{{
+    color:white !important;
+}}
+
+</style>
+""", unsafe_allow_html=True)
 
 df = pd.read_csv('cleaned_data.csv')
 similarities = joblib.load(open("similarity.joblib",'rb'))
@@ -96,30 +124,10 @@ if st.button("Recommend"):
             st.balloons()
 st.divider()
 
-st.markdown(f"""
-<style>
 
-.stApp {{
-    background-image: url("data:image/jpg;base64,{img}");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}}
 
-[data-testid="stHeader"]{{
-    background: rgba(0,0,0,0);
-}}
+def get_base64(file):
+    with open(file, "rb") as f:
+        return base64.b64encode(f.read()).decode()
 
-.main > div {{
-    background: rgba(0,0,0,0.65);
-    padding:20px;
-    border-radius:15px;
-}}
-
-h1,h2,h3,h4,h5,h6,p,label,span{{
-    color:white !important;
-}}
-
-</style>
-""", unsafe_allow_html=True)
 st.caption("Made by Snehal Kolekar with ❤️ using Python, Pandas, Pickle & Streamlit")
