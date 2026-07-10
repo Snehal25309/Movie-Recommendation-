@@ -23,7 +23,7 @@ st.set_page_config(
 
 
 df = pd.read_csv('cleaned_data.csv')
-# similarities = joblib.load(open("similarity.joblib",'rb'))
+similarities = joblib.load(open("similarity.joblib",'rb'))
 
 movies = df['title'].tolist()
 
