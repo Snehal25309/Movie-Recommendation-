@@ -26,7 +26,7 @@ def get_base64(file):
         return base64.b64encode(f.read()).decode()
 img = get_base64("background.jpg")
 
-st.markdown("""
+st.markdown(f"""
 <style>
 
 .stApp {{
