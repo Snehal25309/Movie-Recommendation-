@@ -51,7 +51,8 @@ h1,h2,h3,h4,h5,h6,p,label,span{{
 }}
 
 </style>
-""", unsafe_allow_html=True)
+""", unsafe_allow_html=True
+)
 
 df = pd.read_csv('cleaned_data.csv')
 similarities = joblib.load(open("similarity.joblib",'rb'))
