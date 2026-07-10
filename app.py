@@ -25,11 +25,12 @@ def get_base64(file):
     with open(file, "rb") as f:
         return base64.b64encode(f.read()).decode()
 img = get_base64("background.jpg")
-st.markdown(f"""
+
+st.markdown("""
 <style>
 
 .stApp {{
-    background-image: url(""C:\Users\kolek\Downloads\movie.jpg",{img}");
+    background-image: url("""C:\Users\kolek\nlp\01_Project\background.img.jpg"",{img}");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
