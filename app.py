@@ -29,7 +29,7 @@ st.markdown(f"""
 <style>
 
 .stApp {{
-    background-image: url("data:image/jpg;base64,{img}");
+    background-image: url(""C:\Users\kolek\Downloads\movie.jpg",{img}");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
