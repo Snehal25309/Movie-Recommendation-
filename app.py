@@ -140,7 +140,18 @@ with left:
     )
 
 with right:
-    st.metric("🎬 Total Movies", len(movies))
+    st.markdown(f"""
+         <div style="
+         background:rgba(0,0,0,0.6);
+         padding:20px;
+         border-radius:20px;
+         text-align:center;
+         box-shadow:0px 8px 20px rgba(0,0,0,0.5);
+         ">
+         <h3 style="color:white;">🎬 Total Movies</h3>
+         <h1 style="color:#FFD700;">{len(movies)}</h1>
+         </div>
+     """, unsafe_allow_html=True)
 
 st.divider()
 
@@ -166,10 +177,12 @@ if st.button("Recommend"):
             movie_name = get_name_by_index(movie_index)
 
             with cols[(i - 1) % 2]:
-                with st.container(border=True):
-                    st.write(f"### 🎬 {movie_name}")
-                    st.caption(f"Recommendation #{i}")
-
+                st.markdown(f"""
+                      <div class="recommend-card">
+                      <div class="recommend-title">🎬 {movie_name}</div>
+                      <div class="recommend-number">⭐ Recommendation #{i}</div>
+                      </div>
+                      """, unsafe_allow_html=True)
             st.balloons()
 st.divider()
 
