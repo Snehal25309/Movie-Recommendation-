@@ -21,16 +21,37 @@ st.set_page_config(
     page_icon="🎥",
     layout="wide"
 )
+def get_base64(file):
+    with open(file, "rb") as f:
+        return base64.b64encode(f.read()).decode()
 
-st.markdown("""
+img = get_base64("background.jpg")
+
+st.markdown(f"""
 <style>
 
 .stApp {{
-    background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1920&q=80");
+    background: url("data:image/jpeg;base64,{img}") no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 }}
+
+[data-testid="stHeader"] {{
+    background: rgba(0,0,0,0);
+}}
+
+[data-testid="stToolbar"] {{
+    background: rgba(0,0,0,0);
+}}
+.main > div {{
+    background-color: rgba(0,0,0,0.55);
+    padding:20px;
+    border-radius:15px;
+}}
+
+h1,h2,h3,p,label,span {{
+    color:white !important;
+}}
+
 </style>
 """, unsafe_allow_html=True)
 
